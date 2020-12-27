@@ -12,7 +12,10 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "setup": "cp ../data.json src",
+    "prestart": "yarn run setup",
     "start": "react-scripts start",
+    "prebuild": "yarn run setup",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

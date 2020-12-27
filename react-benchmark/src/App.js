@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+import { useState} from 'react';
+import Posts from './data.json'; 
 import './App.css';
 
 function App() {
+  const [posts, setPosts] = useState(Posts);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {posts.map(post => <div key={post.id}>
+        <img src={post.user.avatar} alt={`avatar of ${post.user.name}`}/>
+      </div>)}
     </div>
   );
 }

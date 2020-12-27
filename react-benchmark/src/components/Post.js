@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { shortenPostContent } from '../shared/helpers/formatters';
 
-const Post = ({ id, user, createdAt, content }) => {
+const Post = ({ post, isOpen = false }) => {
+  const { id, user, createdAt } = post;
+  const content = isOpen ? post.content : shortenPostContent(post.content);
   return (
-    <div key={id} className='post-container'>
+    <div className='post-container'>
       <div className='post__header'>
         <img
           src={user.avatar}
@@ -18,15 +22,26 @@ const Post = ({ id, user, createdAt, content }) => {
         </div>
       </div>
       <p>{content}</p>
+      {!isOpen ? (
+        <Link
+          className='post__read-more'
+          to={{
+            pathname: `posts/${id}`,
+            state: {
+              post,
+            },
+          }}
+        >
+          Czytaj więcej...
+        </Link>
+      ) : null}
     </div>
   );
 };
 
 Post.propTypes = {
-  id: PropTypes.number.isRequired,
-  user: PropTypes.object.isRequired,
-  createdAt: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  post: PropTypes.object.isRequired,
+  isOpen: PropTypes.bool,
 };
 
 export default Post;

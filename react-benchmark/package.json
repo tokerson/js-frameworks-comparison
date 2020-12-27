@@ -12,7 +12,10 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "setup": "rm -rf src/shared && cp -r ../shared src/shared",
+    "prestart": "yarn run setup",
     "start": "react-scripts start",
+    "prebuild": "yarn run setup",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

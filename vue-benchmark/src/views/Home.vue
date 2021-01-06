@@ -1,10 +1,15 @@
 <template>
-  <router-view class="view"></router-view>
+  <PostsList />
 </template>
 
 <script>
+import PostsList from '@/components/PostsList.vue';
+
 export default {
-  name: 'App',
+  name: 'Home',
+  components: {
+    PostsList,
+  },
 };
 </script>
 

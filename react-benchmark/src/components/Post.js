@@ -23,15 +23,7 @@ const Post = ({ post, isOpen = false }) => {
       </div>
       <p>{content}</p>
       {!isOpen ? (
-        <Link
-          className='post__read-more'
-          to={{
-            pathname: `posts/${id}`,
-            state: {
-              post,
-            },
-          }}
-        >
+        <Link className='post__read-more' to={`posts/${id}`}>
           Czytaj więcej...
         </Link>
       ) : null}

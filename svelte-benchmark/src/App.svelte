@@ -1,7 +1,8 @@
 <script>
-	import { Router, Route } from "svelte-routing";
+	import { Router } from "svelte-routing";
 	import PostPage from './pages/PostPage.svelte';
 	import PostsPage from './pages/PostsPage.svelte';
+	import Route from './components/Route.svelte';
 </script>
 
 <Router>

@@ -13,27 +13,41 @@
         <p class="post__date">{{ post.createdAt }}</p>
       </div>
     </div>
-    <p>{{ post.content }}</p>
+    <p>{{ postContent }}</p>
     <router-link
       :to="{
-        name: 'Post',
+        name: 'PostView',
         params: {
           id: post.id,
         },
       }"
       class="post__read-more"
+      v-show="!this.isOpen"
       >Czytaj więcej...</router-link
     >
   </div>
 </template>
 
 <script>
-import '../shared/styles/posts.css';
+import { defineComponent } from 'vue'
+import { shortenPostContent } from '@/shared/helpers/formatters';
+import '@/shared/styles/posts.css';
 
-export default {
-  name: 'PostsList',
+export default defineComponent({
+  name: 'Post',
   props: {
     post: Object,
+    isOpen: {
+      type: Boolean,
+      default: false,
+    },
   },
-};
+  computed: {
+    postContent: function() {
+      return this.isOpen
+        ? this.post.content
+        : shortenPostContent(this.post.content);
+    },
+  },
+});
 </script>

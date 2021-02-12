@@ -1,8 +1,10 @@
 <template>
-  <router-view class="view"></router-view>
+  <router-view class="layout"></router-view>
 </template>
 
 <script>
+import './shared/styles/layout.css';
+
 export default {
   name: 'App',
 };

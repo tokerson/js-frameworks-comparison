@@ -1,9 +1,10 @@
 <template>
-  <Post v-for="post in posts" :key="post.id" :post="post" />
+  <div>
+    <Post v-for="post in posts" :key="post.id" :post="post" />
+  </div>
 </template>
 
 <script>
-import Posts from '../shared/data.json';
 import Post from './Post.vue';
 import '../shared/styles/posts.css';
 
@@ -12,11 +13,6 @@ export default {
   components: {
     Post,
   },
-  props: {},
-  data() {
-    return {
-      posts: Posts,
-    };
-  },
+  props: ['posts']
 };
 </script>

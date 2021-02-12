@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Post from './Post';
+import Post from '../components/Post';
 import { getPost } from '../shared/api';
 
 const PostPage = ({ match }) => {

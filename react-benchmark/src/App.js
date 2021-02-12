@@ -1,23 +1,15 @@
-import { useState } from 'react';
-import { getPosts } from './shared/api';
-import Post from './components/Post';
-import PostPage from './components/PostPage';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+import PostPage from './pages/Post';
+import PostsPage from './pages/Posts';
+import RouteWithLayout from './components/RouteWithLayout';
 import './App.css';
 import './shared/styles/posts.css';
 
 function App() {
-  const [posts, ] = useState(getPosts);
   return (
     <Switch>
-      <Route path='/posts/:id' component={PostPage} />
-      <Route path='/'>
-        <div className='App'>
-          {posts.map((post) => (
-            <Post key={post.id} post={post} />
-          ))}
-        </div>
-      </Route>
+      <RouteWithLayout path='/posts/:id' component={PostPage} />
+      <RouteWithLayout path='/' component={PostsPage} />
     </Switch>
   );
 }

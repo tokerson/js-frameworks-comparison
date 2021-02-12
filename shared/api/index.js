@@ -5,5 +5,5 @@ export const getPosts = () => {
 };
 
 export const getPost = (id) => {
-  return Posts.find((post) => post.id === id);
+  return Posts.find((post) => post.id === +id);
 };

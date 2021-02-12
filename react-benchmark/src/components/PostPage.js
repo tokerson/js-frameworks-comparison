@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Post from './Post';
+import { getPost } from '../shared/api';
 
-const PostPage = ({ location }) => {
-  return <Post post={location.state.post} isOpen />;
+const PostPage = ({ match }) => {
+  const [post, ] = useState(() => getPost(match.params.id));
+  return <Post post={post} isOpen />;
 };
 
 PostPage.propTypes = {
-  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 export default PostPage;

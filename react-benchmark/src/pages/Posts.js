@@ -22,6 +22,7 @@ const PostsPage = () => {
       <form className='search-input-container' onSubmit={handleSearchPosts}>
         <input
           type='text'
+          placeholder="Search for post"
           className='search-input'
           value={searchValue}
           onChange={handleChangeSearchValue}

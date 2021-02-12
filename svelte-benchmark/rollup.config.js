@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import json from '@rollup/plugin-json';
+import svg from 'rollup-plugin-svg'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -59,6 +60,7 @@ export default {
 		}),
 		commonjs(),
 		json(),
+		svg({ base64: true }),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),

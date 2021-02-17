@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { getPosts } from 'src/shared/api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['../shared/styles/posts.css']
 })
 export class AppComponent {
-  title = 'angular-benchmark';
+  posts = getPosts();
 }

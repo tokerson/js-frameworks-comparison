@@ -1,7 +1,7 @@
 <template>
   <div>
     <form class="search-input-container" @submit="this.handleSubmit">
-      <input type="text" class="search-input" v-model="this.searchValue" />
+      <input type="text" placeholder="Search for post" class="search-input" v-model="this.searchValue" />
       <button type="submit" class="search-input__button">
         <img
           src="@/shared/icons/search.svg"

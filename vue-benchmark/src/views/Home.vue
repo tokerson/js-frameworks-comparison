@@ -1,22 +1,38 @@
 <template>
   <div>
-    <form class="search-input-container" @submit="this.handleSubmit">
-      <input type="text" placeholder="Search for post" class="search-input" v-model="this.searchValue" />
-      <button type="submit" class="search-input__button">
-        <img
-          src="@/shared/icons/search.svg"
-          alt="search icon"
-          :height="14"
-          :width="14"
+    <div class="posts-search-bar-container">
+      <form class="search-input-container" @submit.prevent="this.handleSubmit">
+        <input
+          type="text"
+          placeholder="Search for post"
+          class="search-input"
+          v-model="searchValue"
         />
-      </button>
-    </form>
-    <PostsList :posts="this.posts"/>
+        <button type="submit" class="search-input__button">
+          <img
+            src="@/shared/icons/search.svg"
+            alt="search icon"
+            :height="14"
+            :width="14"
+          />
+        </button>
+      </form>
+      <select v-model="sortOption" v-on:change="this.handleSortOptionChange" class="post-sort__select">
+        <option
+          v-for="option in sortOptions"
+          :key="option.value"
+          v-bind:value="option.value"
+          >{{ option.label }}</option
+        >
+      </select>
+    </div>
+    <PostsList :posts="this.posts" />
   </div>
 </template>
 
 <script>
-import { getPosts, searchPosts } from '../shared/api';
+import { getPosts } from '../shared/api';
+import { SORT_OPTIONS } from '../shared/helpers/sortOptions';
 import PostsList from '@/components/PostsList.vue';
 import '@/shared/styles/search.css';
 
@@ -29,14 +45,24 @@ export default {
     return {
       posts: getPosts(),
       searchValue: '',
+      sortOption: SORT_OPTIONS[0].value,
+      sortOptions: SORT_OPTIONS,
     };
   },
   methods: {
-    handleSubmit: function (e) {
-      e.preventDefault();
-      this.posts = searchPosts(this.searchValue.trim());
-    }
-  }
+    handleFetchPosts: function() {
+      return getPosts({
+        sortOption: this.sortOption,
+        searchTerm: this.searchValue.trim(),
+      });
+    },
+    handleSubmit: function() {
+      this.posts = this.handleFetchPosts();
+    },
+    handleSortOptionChange: function() {
+      this.posts = this.handleFetchPosts();
+    },
+  },
 };
 </script>
 

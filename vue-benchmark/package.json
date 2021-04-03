@@ -9,7 +9,8 @@
     "prebuild": "yarn run setup",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "analyze": "ANALYZE=true yarn run build"
+    "analyze": "ANALYZE=true yarn run build",
+    "sitespeed": "sitespeed.io https://vue-benchmark.netlify.app -b chrome"
   },
   "dependencies": {
     "core-js": "^3.6.5",

@@ -6,21 +6,14 @@ import { SORT_OPTIONS } from '../shared/helpers/sortOptions';
 import '../shared/styles/search.css';
 
 const PostsPage = () => {
+  const [posts, setPosts] = useState(() => getPosts());
   const [searchValue, setSearchValue] = useState('');
   const [selectedSortOption, setSelectedSortOption] = useState(
     SORT_OPTIONS[0].value,
   );
-  const [posts, setPosts] = useState(() =>
-    getPosts({ sortOption: selectedSortOption }),
-  );
 
   useEffect(() => {
-    setPosts(() =>
-      getPosts({
-        sortOption: selectedSortOption,
-        searchTerm: searchValue.trim(),
-      }),
-    );
+    handleRefetchPosts();
   }, [selectedSortOption]);
 
   const handleChangeSearchValue = (e) => {
@@ -29,6 +22,11 @@ const PostsPage = () => {
 
   const handleSearchPosts = (e) => {
     e.preventDefault();
+    handleRefetchPosts();
+  };
+
+  const handleRefetchPosts = () => {
+    console.log(selectedSortOption);
     setPosts(() =>
       getPosts({
         sortOption: selectedSortOption,
@@ -68,7 +66,11 @@ const PostsPage = () => {
           ))}
         </select>
       </div>
-      {posts ? posts.map((post) => <Post key={post.id} post={post} />) : null}
+      {posts?.length > 0 ? (
+        posts.map((post) => <Post key={post.id} post={post} />)
+      ) : (
+        <p>No posts found</p>
+      )}
     </div>
   );
 };

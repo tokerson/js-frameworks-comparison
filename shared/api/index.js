@@ -1,25 +1,28 @@
 import Posts from '../data.json';
-import { SORT_FILTERS, SORT_OPTIONS } from '../helpers/sortOptions';
+import { SORT_FILTERS } from '../helpers/sortOptions';
 
-export const getPosts = ({ sortOption, searchTerm }) => {
-  const posts = searchTerm ? searchPosts(searchTerm) : Posts;
-  if (!sortOption || sortOption === SORT_OPTIONS[0].value) return posts;
+export const getPosts = ({ sortOption, searchTerm } = {}) => {
+  const posts = searchTerm ? searchPosts(searchTerm) : [...Posts];
+  if (!sortOption) return posts;
 
-  return sortPosts(posts, { sortOption });
+  const sortedPosts = sortPosts(posts, { sortOption });
+  console.log(sortedPosts);
+  return sortedPosts;
 };
 
 const sortPosts = (posts, { sortOption }) => {
   let sortOrderModifier = 0;
   switch (sortOption) {
     case SORT_FILTERS.OLDEST:
-      sortOrderModifier = -1;
-      break;
-    case SORT_FILTERS.NEWEST:
       sortOrderModifier = 1;
       break;
-    default:
+    case SORT_FILTERS.NEWEST:
+      sortOrderModifier = -1;
       break;
+    default:
+      return posts;
   }
+  
   return posts.sort((a, b) => {
     const firstItemDate = new Date(...a.createdAt.split('/').reverse());
     const secondItemDate = new Date(...b.createdAt.split('/').reverse());

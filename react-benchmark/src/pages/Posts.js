@@ -45,6 +45,7 @@ const PostsPage = () => {
         <form className='search-input-container' onSubmit={handleSearchPosts}>
           <input
             type='text'
+            placeholder="Search for post"
             className='search-input'
             value={searchValue}
             onChange={handleChangeSearchValue}
@@ -53,7 +54,6 @@ const PostsPage = () => {
             <img src={SearchIcon} alt='search icon' height={14} width={14} />
           </button>
         </form>
-
         <select
           value={selectedSortOption}
           onChange={handleSortOptionChange}

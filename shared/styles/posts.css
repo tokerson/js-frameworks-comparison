@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.posts-search-bar-container {
+  display: flex;
+}
+
 .post-container {
   padding: 1rem;
   margin: 1rem 0;
@@ -41,4 +45,9 @@
 
 .post__read-more:hover {
   color: #000;
+}
+
+.post-sort__select {
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }

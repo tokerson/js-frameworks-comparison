@@ -1,7 +1,40 @@
 import Posts from '../data.json';
+import { SORT_FILTERS } from '../helpers/sortOptions';
 
-export const getPosts = () => {
-  return Posts;
+export const getPosts = ({ sortOption, searchTerm } = {}) => {
+  const posts = searchTerm ? searchPosts(searchTerm) : [...Posts];
+  if (!sortOption) return posts;
+
+  const sortedPosts = sortPosts(posts, { sortOption });
+  console.log(sortedPosts);
+  return sortedPosts;
+};
+
+const sortPosts = (posts, { sortOption }) => {
+  let sortOrderModifier = 0;
+  switch (sortOption) {
+    case SORT_FILTERS.OLDEST:
+      sortOrderModifier = 1;
+      break;
+    case SORT_FILTERS.NEWEST:
+      sortOrderModifier = -1;
+      break;
+    default:
+      return posts;
+  }
+  
+  return posts.sort((a, b) => {
+    const firstItemDate = new Date(...a.createdAt.split('/').reverse());
+    const secondItemDate = new Date(...b.createdAt.split('/').reverse());
+
+    if (firstItemDate < secondItemDate) {
+      return -1 * sortOrderModifier;
+    } else if (firstItemDate === secondItemDate) {
+      return 0;
+    } else {
+      return 1 * sortOrderModifier;
+    }
+  });
 };
 
 export const getPost = (id) => {

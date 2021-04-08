@@ -1,6 +1,6 @@
-const fs = require('fs');
+import fs from 'fs';
 
-const dir = './results/1617719794557';
+const dir = './results/1617900265890';
 
 const heapData = [];
 
@@ -10,8 +10,7 @@ files.forEach((file) => {
   if (file.split('.')[1] !== 'json') {
     return;
   }
-  const json = require(`${dir}/${file}`);
-  console.log(json);
+  const json = JSON.parse(fs.readFileSync(`${dir}/${file}`).toString());
   const heapSizes = [];
 
   json.traceEvents.forEach((event) => {

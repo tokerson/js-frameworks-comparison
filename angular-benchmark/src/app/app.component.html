@@ -1,2 +1,13 @@
+<form class="search-input-container" (ngSubmit)="onSubmit()">
+  <input type="text" name="searchTerm" placeholder="Search for post" class="search-input" [(ngModel)]="searchTerm" />
+    <button type="submit" class="search-input__button">
+        <img
+            src={{searchIcon}}
+            alt="search icon"
+            height="14"
+            width="14"
+        />
+    </button>
+</form>
 <post *ngFor="let post of posts" [post]="post">
 </post>

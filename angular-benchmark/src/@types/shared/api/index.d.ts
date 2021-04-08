@@ -11,7 +11,12 @@ declare module 'src/shared/api' {
     createdAt: string;
   }
 
-  export function getPosts(): Post[];
+  export interface GetPostsOptions {
+    searchTerm?: string;
+    sortOption?: string;
+  }
+
+  export function getPosts(options?: GetPostsOptions): Post[];
 
   export function searchPosts(searchString: string): Post[];
 

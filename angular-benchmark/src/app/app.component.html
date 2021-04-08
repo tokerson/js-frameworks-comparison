@@ -1,24 +1,3 @@
-<div class="posts-search-bar-container">
-  <form class="search-input-container" (ngSubmit)="onSubmit()">
-    <input
-      type="text"
-      name="searchTerm"
-      placeholder="Search for post"
-      class="search-input"
-      [(ngModel)]="searchTerm"
-    />
-    <button type="submit" class="search-input__button">
-      <img src="{{ searchIcon }}" alt="search icon" height="14" width="14" />
-    </button>
-  </form>
-  <select
-    [(ngModel)]="chosenSortOption"
-    class="post-sort__select"
-    (ngModelChange)="onSubmit()"
-  >
-    <option *ngFor="let sortOption of sortOptions" [value]="sortOption.value">
-      {{ sortOption.label }}
-    </option>
-  </select>
+<div class="layout">
+  <router-outlet></router-outlet>
 </div>
-<post *ngFor="let post of posts" [post]="post"> </post>

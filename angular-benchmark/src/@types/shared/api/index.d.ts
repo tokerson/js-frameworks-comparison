@@ -20,5 +20,5 @@ declare module 'src/shared/api' {
 
   export function searchPosts(searchString: string): Post[];
 
-  export function getPost(): Post;
+  export function getPost(id: string): Post;
 }

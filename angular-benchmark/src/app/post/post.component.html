@@ -13,4 +13,8 @@
     </div>
   </div>
   <p>{{ postContent }}</p>
+  <a *ngIf="!isOpen" class='post__read-more' [routerLink]="['/posts', post.id]">
+    Czytaj więcej...
+  </a>
+
 </div>

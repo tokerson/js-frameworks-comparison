@@ -1,0 +1,17 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "node": {
+    "child_process": "empty"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^7.0.1"
+  }
+}

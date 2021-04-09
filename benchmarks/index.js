@@ -16,6 +16,9 @@ const pages = [
   {
     id: 'svelte',
   },
+  {
+    id: 'angular',
+  },
 ];
 
 const performProfiling = async (testPage) => {

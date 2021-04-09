@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const dir = './results/1617900265890';
+const dir = './results/1617909833164';
 
 const heapData = [];
 

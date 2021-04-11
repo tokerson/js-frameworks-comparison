@@ -1,4 +1,4 @@
-import Posts from '../data.json';
+import Posts from '../data/data.json';
 import { SORT_FILTERS } from '../helpers/sortOptions';
 
 export const getPosts = ({ sortOption, searchTerm } = {}) => {

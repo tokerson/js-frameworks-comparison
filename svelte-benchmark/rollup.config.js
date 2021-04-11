@@ -82,7 +82,8 @@ export default {
     shouldAnalyze &&
       visualizer({
         gzipSize: true,
-        open: true,
+        open: false,
+        filename: '../benchmarks/bundle-sizes/svelte.html',
       }),
   ],
   watch: {

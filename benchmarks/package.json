@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:profile": "node index.js",
-    "start:analyze": "node analyze.js"
+    "start:analyze": "node analyze.js",
+    "start:bundle": "node bundleSize.js"
   },
   "author": "",
   "license": "ISC",

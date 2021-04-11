@@ -14,7 +14,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:stats": "yarn run build --stats-json",
-    "analyze": "yarn run build:stats && webpack-bundle-analyzer dist/angular-benchmark/stats.json"
+    "analyze": "yarn run build:stats && webpack-bundle-analyzer dist/angular-benchmark/stats.json -m 'static' -s 'gzip' --no-open -r '../benchmarks/bundle-sizes/angular.html'"
   },
   "private": true,
   "dependencies": {

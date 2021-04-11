@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "setup": "rm -rf src/shared && cp -r ../shared src/shared",
+    "setup:dev": "yarn run setup && rm src/shared/data/testData.json",
+    "setup:test": "yarn run setup && mv src/shared/data/testData.json src/shared/data/data.json",
     "preserve": "yarn run setup",
     "serve": "vue-cli-service serve",
     "prebuild": "yarn run setup",

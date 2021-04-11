@@ -5,9 +5,7 @@ export const getPosts = ({ sortOption, searchTerm } = {}) => {
   const posts = searchTerm ? searchPosts(searchTerm) : [...Posts];
   if (!sortOption) return posts;
 
-  const sortedPosts = sortPosts(posts, { sortOption });
-  console.log(sortedPosts);
-  return sortedPosts;
+  return sortPosts(posts, { sortOption });
 };
 
 const sortPosts = (posts, { sortOption }) => {

@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "setup": "rm -rf src/shared && cp -r ../shared src/shared",
+    "setup:dev": "yarn run setup && rm src/shared/data/testData.json",
+    "setup:test": "yarn run setup && mv src/shared/data/testData.json src/shared/data/data.json",
     "prebuild": "yarn run setup",
     "build": "rollup -c",
     "predev": "yarn run setup",

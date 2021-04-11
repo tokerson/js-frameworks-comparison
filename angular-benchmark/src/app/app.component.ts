@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['../shared/styles/layout.css'],
 })
-export class AppComponent {
-  title = 'angular-benchmark';
-}
+export class AppComponent {}

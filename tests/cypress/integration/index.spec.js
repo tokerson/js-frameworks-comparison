@@ -22,7 +22,7 @@ describe('all websites', () => {
   it('should display first item from list as first', () => {
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Eadith Frugier',
+      'Lusa Halle',
     );
   });
 
@@ -31,7 +31,7 @@ describe('all websites', () => {
 
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Taylor Bagshaw',
+      'Hazel Kohn',
     );
   });
 
@@ -40,7 +40,7 @@ describe('all websites', () => {
 
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Darin Birkin',
+      'Christian Tee',
     );
   });
 
@@ -50,7 +50,7 @@ describe('all websites', () => {
 
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Erica De Bellis',
+      'Larine Cansdale',
     );
   });
 
@@ -61,7 +61,7 @@ describe('all websites', () => {
 
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Luca Twatt',
+      'Maggy Cantillon',
     );
   });
 });

@@ -6,13 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:profile": "node index.js",
-    "start:analyze": "node analyze.js"
+    "start:analyze": "node analyze.js",
+    "start:bundle": "node bundleSize.js",
+    "start:sitespeed": "node sitespeed.js"
   },
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
     "fs": "^0.0.1-security",
-    "puppeteer": "^8.0.0"
+    "puppeteer": "^8.0.0",
+    "sitespeed.io": "^16.10.3"
   }
 }

@@ -64,4 +64,9 @@ describe('all websites', () => {
       'Maggy Cantillon',
     );
   });
+
+  it('should open a posts page once a read more button is clicked', () => {
+    cy.get('.post__read-more:first').click();
+    cy.url().should('include', '/posts/1');
+  })
 });

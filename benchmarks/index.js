@@ -42,6 +42,10 @@ const performProfiling = async (testPage) => {
   await page.click('.search-input__button');
 
   await page.waitForTimeout(100);
+
+  await page.click('.post__read-more');
+  await page.waitForTimeout(100);
+
   await page.tracing.stop();
   await browser.close();
 };

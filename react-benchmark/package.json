@@ -24,8 +24,8 @@
     "pretest": "yarn run setup:test",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "analyze": "yarn run build && node analyze.js",
-    "sitespeed": "sitespeed.io https://react-benchmark.netlify.app -b chrome"
+    "sitespeed": "sitespeed.io https://react-benchmark.netlify.app -b chrome",
+    "analyze": "yarn run build && node analyze.js"
   },
   "eslintConfig": {
     "extends": [

@@ -12,6 +12,7 @@ if (process.env.ANALYZE === 'true')
       defaultSizes: 'gzip',
       openAnalyzer: false,
       reportFilename: '../../benchmarks/bundle-sizes/vue.html',
+      generateStatsFile: true,
     }),
   );
 

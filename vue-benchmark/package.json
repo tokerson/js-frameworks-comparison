@@ -10,6 +10,7 @@
     "serve": "vue-cli-service serve",
     "prebuild": "yarn run setup:dev",
     "build": "vue-cli-service build",
+    "build:modern": "vue-cli-service build --modern",
     "lint": "vue-cli-service lint",
     "analyze": "ANALYZE=true yarn run build",
     "sitespeed": "sitespeed.io https://vue-benchmark.netlify.app -b chrome"

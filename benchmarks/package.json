@@ -8,13 +8,15 @@
     "start:profile": "node index.js",
     "start:analyze": "node analyze.js",
     "start:bundle": "node bundleSize.js",
-    "start:sitespeed": "node sitespeed.js"
+    "start:sitespeed": "node sitespeed.js",
+    "start:vitals": "node vitals.js"
   },
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "fs": "^0.0.1-security",
+    "lighthouse": "^7.4.0",
     "puppeteer": "^8.0.0",
     "sitespeed.io": "^16.10.3"
   }

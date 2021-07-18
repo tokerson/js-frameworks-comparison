@@ -13,11 +13,11 @@
   },
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "fs": "^0.0.1-security",
     "lighthouse": "^7.4.0",
-    "puppeteer": "^8.0.0",
+    "puppeteer": "^10.1.0",
     "sitespeed.io": "^16.10.3"
   }
 }

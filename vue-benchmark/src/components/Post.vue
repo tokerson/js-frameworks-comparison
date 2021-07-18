@@ -1,17 +1,8 @@
 <template>
   <div class="post-container">
     <div class="post__header">
-      <img
-        :src="post.user.avatar"
-        :alt="`avatar of ${post.user.name}`"
-        class="post__avatar"
-        width="50"
-        height="50"
-      />
-      <div>
-        <p class="post__author">{{ post.user.name }}</p>
-        <p class="post__date">{{ post.createdAt }}</p>
-      </div>
+      <p class="post__author">{{ post.user.name }}</p>
+      <p class="post__date">{{ post.createdAt }}</p>
     </div>
     <p>{{ postContent }}</p>
     <router-link

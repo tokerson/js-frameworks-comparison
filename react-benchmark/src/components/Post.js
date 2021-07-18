@@ -9,17 +9,8 @@ const Post = ({ post, isOpen = false }) => {
   return (
     <div className='post-container'>
       <div className='post__header'>
-        <img
-          src={user.avatar}
-          alt={`avatar of ${user.name}`}
-          className='post__avatar'
-          width={50}
-          height={50}
-        />
-        <div>
-          <p className='post__author'>{user.name}</p>
-          <p className='post__date'>{createdAt}</p>
-        </div>
+        <p className='post__author'>{user.name}</p>
+        <p className='post__date'>{createdAt}</p>
       </div>
       <p>{content}</p>
       {!isOpen ? (

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getPosts } from '../shared/api';
 import Post from '../components/Post';
-import SearchIcon from '../shared/icons/search.svg';
 import { SORT_OPTIONS } from '../shared/helpers/sortOptions';
 import '../shared/styles/search.css';
+import SearchInput from '../components/SearchInput';
 
 const PostsPage = () => {
   const [posts, setPosts] = useState(() => getPosts());
-  const [searchValue, setSearchValue] = useState('');
   const [selectedSortOption, setSelectedSortOption] = useState(
     SORT_OPTIONS[0].value,
   );
@@ -16,21 +15,11 @@ const PostsPage = () => {
     handleRefetchPosts();
   }, [selectedSortOption]);
 
-  const handleChangeSearchValue = (e) => {
-    setSearchValue(e.target.value);
-  };
-
-  const handleSearchPosts = (e) => {
-    e.preventDefault();
-    handleRefetchPosts();
-  };
-
-  const handleRefetchPosts = () => {
-    console.log(selectedSortOption);
+  const handleRefetchPosts = ({ searchTerm = '' } = {}) => {
     setPosts(() =>
       getPosts({
         sortOption: selectedSortOption,
-        searchTerm: searchValue.trim(),
+        searchTerm: searchTerm.trim(),
       }),
     );
   };
@@ -42,18 +31,7 @@ const PostsPage = () => {
   return (
     <div>
       <div className='posts-search-bar-container'>
-        <form className='search-input-container' onSubmit={handleSearchPosts}>
-          <input
-            type='text'
-            placeholder="Search for post"
-            className='search-input'
-            value={searchValue}
-            onChange={handleChangeSearchValue}
-          />
-          <button type='submit' className='search-input__button'>
-            <img src={SearchIcon} alt='search icon' height={14} width={14} />
-          </button>
-        </form>
+        <SearchInput onSubmit={handleRefetchPosts}/>
         <select
           value={selectedSortOption}
           onChange={handleSortOptionChange}

@@ -9,12 +9,15 @@
     "start:analyze": "node analyze.js",
     "start:bundle": "node bundleSize.js",
     "start:sitespeed": "node sitespeed.js",
-    "start:vitals": "node vitals.js"
+    "start:vitals": "node vitals.js",
+    "start:generator": "node generator.js"
   },
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "dayjs": "^1.10.6",
+    "faker": "^5.5.3",
     "fs": "^0.0.1-security",
     "lighthouse": "^7.4.0",
     "puppeteer": "^10.1.0",

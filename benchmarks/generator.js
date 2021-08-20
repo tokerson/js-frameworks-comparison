@@ -10,7 +10,7 @@ for (let i = 0; i < numberOfFakeData; i++) {
         id: i+1,
         user: { name : faker.name.findName() },
         content: faker.lorem.paragraph(),
-        createdAt: dayjs(faker.date.datetime()).format("DD/MM/YYYY")
+        createdAt: dayjs(faker.datatype.datetime()).format("DD/MM/YYYY")
     })
 };
 

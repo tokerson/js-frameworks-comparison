@@ -3,15 +3,13 @@ import fs from 'fs';
 import { SORT_FILTERS } from '../shared/helpers/sortOptions.mjs';
 
 const getPageUrl = (pageId) => `https://${pageId}-benchmark.netlify.app`;
-const date = Date.now();
-const dirName = `./results/${date}`;
 
 const pages = [
   {
-    id: 'react',
+    id: 'vue',
   },
   {
-    id: 'vue',
+    id: 'react',
   },
   {
     id: 'svelte',
@@ -21,7 +19,7 @@ const pages = [
   },
 ];
 
-const performProfiling = async (testPage) => {
+const performProfiling = async (testPage, {dirName}) => {
   console.log('launching for ', testPage);
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
@@ -34,14 +32,11 @@ const performProfiling = async (testPage) => {
   });
 
   await page.select('.post-sort__select', SORT_FILTERS.NEWEST);
-  await page.waitForTimeout(100);
+
   await page.select('.post-sort__select', SORT_FILTERS.OLDEST);
-  await page.waitForTimeout(100);
 
   await page.type('.search-input', 'da');
   await page.click('.search-input__button');
-
-  await page.waitForTimeout(100);
 
   await page.click('.post__read-more');
   await page.waitForTimeout(100);
@@ -51,11 +46,17 @@ const performProfiling = async (testPage) => {
 };
 
 const run = async () => {
+  const date = Date.now();
+  const dirName = `./results/${date}`;
+
   fs.mkdirSync(dirName);
+  console.log(`Created a directory: "${dirName}"`);
 
   for (const page of pages) {
-    await performProfiling(page);
+    await performProfiling(page, { dirName });
   }
 };
 
-run();
+for (let i = 0; i < 7; i++) {
+  await run();
+}

@@ -2,17 +2,12 @@
     import Post from '../components/Post.svelte';
 	import { getPosts } from '../shared/api';
     import { SORT_OPTIONS } from '../shared/helpers/sortOptions';
-	import { onMount } from 'svelte';
     import SearchIcon from '../shared/icons/search.svg';
     import '../shared/styles/search.css';
 
-    let posts = [];
+    let posts = getPosts();
     let searchValue = "";
     let selectedSortOption = SORT_OPTIONS[0].value;
-
-    onMount(() => {
-        posts = getPosts();
-    })
 
     const handleFetchPosts = () => getPosts({ sortOption: selectedSortOption,searchTerm: searchValue.trim()});
 

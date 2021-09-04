@@ -29,7 +29,7 @@ const PostsPage = () => {
   };
 
   return (
-    <div>
+    <>
       <div className='posts-search-bar-container'>
         <SearchInput onSubmit={handleRefetchPosts}/>
         <select
@@ -49,7 +49,7 @@ const PostsPage = () => {
       ) : (
         <p>No posts found</p>
       )}
-    </div>
+    </>
   );
 };
 

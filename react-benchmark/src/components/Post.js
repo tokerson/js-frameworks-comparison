@@ -27,4 +27,4 @@ Post.propTypes = {
   isOpen: PropTypes.bool,
 };
 
-export default Post;
+export default React.memo(Post);

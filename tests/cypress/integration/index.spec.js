@@ -22,7 +22,7 @@ describe('all websites', () => {
   it('should display first item from list as first', () => {
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Lusa Halle',
+      'Carol Fritsch',
     );
   });
 
@@ -31,7 +31,7 @@ describe('all websites', () => {
 
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Hazel Kohn',
+      'Ms. Dianna Murazik',
     );
   });
 
@@ -40,7 +40,7 @@ describe('all websites', () => {
 
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Christian Tee',
+      'Harriet Ziemann',
     );
   });
 
@@ -50,7 +50,7 @@ describe('all websites', () => {
 
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Larine Cansdale',
+      'Carol Fritsch',
     );
   });
 
@@ -61,7 +61,7 @@ describe('all websites', () => {
 
     cy.get('.post__header:first > div > .post__author').should(
       'have.text',
-      'Maggy Cantillon',
+      'Harriet Ziemann',
     );
   });
 

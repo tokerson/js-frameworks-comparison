@@ -8,7 +8,6 @@
     "start:profile": "node index.js",
     "start:analyze": "node analyze.js",
     "start:bundle": "node bundleSize.js",
-    "start:sitespeed": "node sitespeed.js",
     "start:vitals": "node vitals.js",
     "start:generator": "node generator.js"
   },
@@ -19,8 +18,7 @@
     "dayjs": "^1.10.6",
     "faker": "^5.5.3",
     "fs": "^0.0.1-security",
-    "lighthouse": "^7.4.0",
-    "puppeteer": "^10.1.0",
-    "sitespeed.io": "^16.10.3"
+    "lighthouse": "^8.3.0",
+    "puppeteer": "^10.1.0"
   }
 }

@@ -19,15 +19,21 @@ const pages = [
   },
 ];
 
-const performProfiling = async (testPage, {dirName}) => {
-  console.log('launching for ', testPage);
+const iPhone = puppeteer.devices['iPhone X'];
+
+const performProfiling = async (testPage, {dirName, isMobile }) => {
+  console.log(`launching for ${testPage.id}${isMobile ? ', version mobile' : ''}`);
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
+  if(isMobile) {
+    await page.emulate(iPhone);
+    await page.emulateCPUThrottling(4);
+  }
   await page.goto(getPageUrl(testPage.id));
 
   await page.waitForSelector('.search-input');
   await page.tracing.start({
-    path: `${dirName}/${testPage.id}.json`,
+    path: `${dirName}/${testPage.id}${isMobile ? '-mobile' : ''}.json`,
     screenshots: true,
   });
 
@@ -45,7 +51,7 @@ const performProfiling = async (testPage, {dirName}) => {
   await browser.close();
 };
 
-const run = async () => {
+const run = async (isMobile) => {
   const date = Date.now();
   const dirName = `./results/${date}`;
 
@@ -53,10 +59,15 @@ const run = async () => {
   console.log(`Created a directory: "${dirName}"`);
 
   for (const page of pages) {
-    await performProfiling(page, { dirName });
+    await performProfiling(page, { dirName, isMobile });
   }
 };
 
-for (let i = 0; i < 7; i++) {
-  await run();
-}
+(async () => {
+  for (let i = 0; i < 7; i++) {
+    await run();
+  }
+  for (let i = 0; i < 7; i++) {
+    await run(true);
+  }
+})();
